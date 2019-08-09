@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var dbInterface = require('./db-interface.js')
 
 var routeDirs = ["/", "/projects", "/resume"];
 
@@ -19,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 routeDirs.forEach(dir => {
-  var importRoute = (dir === "/") ? "/routes/index" : `/routes/${dir}`;  
+  var importRoute = (dir === "/") ? "./routes/index.js" : `./routes/${dir}.js`;  
   app.use(`${dir}`, require(importRoute));
 });
 
