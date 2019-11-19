@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var dbInterface = require('./database/db-interface.js')
+var dbInterface = require('./database/db-interface.js');
 var routeDirs = ["/", "/projects", "/resume"];
 
 var app = express();
