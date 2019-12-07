@@ -10,7 +10,10 @@ module.exports = {
         })
         .then((database, err) => {
             return database.collection(dbCollection).find(query).toArray();
-        });
+        })
+        .catch((error) => {
+            return error;
+        })
     },
 
     insertData: function(dbCollection, data) {
@@ -21,7 +24,10 @@ module.exports = {
         })
         .then((database, err) => {
             return database.collection(dbCollection).insertMany(data);
-        });
+        })
+        .catch((error) => {
+            return error;
+        })
     },
 
     deleteData: function(dbCollection, query) {
@@ -32,7 +38,10 @@ module.exports = {
         })
         .then((database, err) => {
             return database.collection(dbCollection).deleteMany(query);
-        });
+        })
+        .catch((error) => {
+            return error;
+        })
     },
 
     updateData: function(dbCollection, query, data) {
@@ -43,6 +52,9 @@ module.exports = {
         })
         .then((database, err) => {
             return database.collection(dbCollection).updateMany(data).toArray();
+        })
+        .catch((error) => {
+            return error;
         })
     }
 };
