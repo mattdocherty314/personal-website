@@ -4,15 +4,17 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Projects } from './routes/projects-route';
 import { Resume } from './routes/resume-route';
+import './index.css'
 
 function App() {
     return (
         <Router>
             <div className="App">
-                <aside>
-                    <Link to={"/projects"}>Projects</Link>
-                    <Link to={"/resume"}>Resume</Link>
-                </aside>
+                <aside><ul id="nav">
+                    <Link to={"/"}><li>Home</li></Link>
+                    <Link to={"/projects"}><li>Projects</li></Link>
+                    <Link to={"/resume"}><li>Resume</li></Link>
+                    </ul></aside>
                 <main>
                     <Route exact path="/" component={Menu} />
                     <Route exact path="/projects" component={Projects} />
@@ -25,7 +27,9 @@ function App() {
 
 function Menu() {
     return (
-        <h1> Matthew Docherty </h1>
+        <div id="main">
+            <h1 id="main-title"> Matthew Docherty </h1>
+        </div>
     )
 }
 
