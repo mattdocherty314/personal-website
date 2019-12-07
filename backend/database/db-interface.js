@@ -20,7 +20,7 @@ module.exports = {
             return db.db(config.database);
         })
         .then((database, err) => {
-            return database.collection(dbCollection).insertMany(data).toArray();
+            return database.collection(dbCollection).insertMany(data);
         });
     },
 
@@ -31,7 +31,7 @@ module.exports = {
             return db.db(config.database);
         })
         .then((database, err) => {
-            return database.collection(dbCollection).deleteMany(query).toArray();
+            return database.collection(dbCollection).deleteMany(query);
         });
     },
 
