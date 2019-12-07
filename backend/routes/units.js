@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
   sendToDB(dbQuery)
   .then((dbRes, err) => {
     res.setHeader('Content-Type', 'application/json');
-    console.log(dbRes)
     res.send(dbRes);
   })
 });
@@ -65,7 +64,7 @@ function createMongoQuery(settings) {
 }
 
 function sendToDB(query) {
-  return dbInterface.queryData('resume', query);
+  return dbInterface.queryData('units', query);
 }
 
 module.exports = router;
