@@ -23,7 +23,7 @@ export function useDataFromBackend(path, args={}) {
 }
 
 function getDataFromBackend(path, args) {
-    let url = apiAddress+path;
+    let url = `${apiAddress}${path}`;
     let param = {
         method: "GET"
     };

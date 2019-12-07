@@ -19,8 +19,9 @@ router.get('/', function(req, res, next) {
 
 function createQuery(userRequest) {
   let defQuery = {
-    'page': 1,
-    'numPerPage': 4
+    'tags': ['core', 'elective'],
+    'gt_gpa': 4,
+    'gt_pct': 50
   }
 
   for (let setting in defQuery) {
@@ -39,6 +40,10 @@ function createQuery(userRequest) {
 function parseStringToCorrect(stringToParse) {
   var parsedItem = null;
   
+  if (stringToParse.indexOf(',') != -1) {
+    return stringToParse.split(',')
+  }
+
   parsedItem = parseInt(stringToParse);
   if (!isNaN(parsedItem)) {
     return parsedItem;
@@ -55,9 +60,14 @@ function parseStringToCorrect(stringToParse) {
 
 function createMongoQuery(settings) {
   let mongoQuery = {
-    id: {
-      $gte: (settings.page-1) * settings.numPerPage,
-      $lte: settings.page * settings.numPerPage - 1
+    gpa: {
+      $gte: settings.gt_gpa
+    },
+    percentage: {
+      $gte: settings.gt_pct
+    },
+    tags: {
+      $in: settings.tags
     }
   };
   return mongoQuery;

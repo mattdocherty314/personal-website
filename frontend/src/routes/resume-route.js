@@ -13,7 +13,7 @@ export function Resume() {
                 <table>
                 <tr>
                         <td><strong> Current GPA: </strong></td>
-                        <td> 5.917 </td>
+                        <td> 5.625 </td>
                     </tr>
                     <tr>
                         <td><strong> Engineering (Honours) Major: </strong></td>
@@ -23,13 +23,21 @@ export function Resume() {
                         <td><strong> Information Technology Major:</strong></td>
                         <td> Computer Science </td>
                     </tr>
-                    <tr>
-                        <td><strong> Electives: </strong></td>
-                        <td> 
-                            <li> CAB230: Web Computing (GPA 6) </li>
-                            <li> CAB240: Information Security (GPA tbd) </li>
+                    <tr id="units">
+                        <td id="unit-type"><strong> Units: </strong></td>
+                        <td id="unit-list">
+                            <p> Loading... </p>
                         </td>
                     </tr>
+                    <strong><p> Type of Unit: </p></strong>
+                    <select id="show-unit">
+                        <option value="elective"> Elective Units </option>
+                        <option value="core"> Core Units </option>
+                        <option value="it"> I.T. Units</option>
+                        <option value="security"> Security Units </option>
+                        <option value="engineering"> Engineering Units </option>
+                        <option value="maths"> Mathematics Units </option>
+                    </select>
                 </table>
             </p>
 
