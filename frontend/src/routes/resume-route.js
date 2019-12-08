@@ -1,6 +1,13 @@
 import React from 'react';
 
+import { useDataFromBackend } from '../api'
+
 export function Resume() {
+
+    let apiResp = useDataFromBackend('/units?tags=elective,');
+    let loading = apiResp.loading;
+    let error = apiResp.error;
+
     return (
         <div id="resume">
             <h1> Resume </h1>
@@ -23,12 +30,7 @@ export function Resume() {
                         <td><strong> Information Technology Major:</strong></td>
                         <td> Computer Science </td>
                     </tr>
-                    <tr id="units">
-                        <td id="unit-type"><strong> Units: </strong></td>
-                        <td id="unit-list">
-                            <p> Loading... </p>
-                        </td>
-                    </tr>
+                    <UnitsComponent loadStatus={loading} errorStatus={error} response={apiResp.response}/>
                     <strong><p> Type of Unit: </p></strong>
                     <select id="show-unit">
                         <option value="elective"> Elective Units </option>
@@ -97,5 +99,32 @@ export function Resume() {
                 </table>
             </p>
         </div>
+    )
+}
+
+function UnitsComponent(props) {
+    if (props.loadStatus) {
+        return (
+            <tr id="units">
+                <td id="unit-type"><strong> Loading Units... </strong></td>
+            </tr>
+        )
+    }
+    
+    else if (props.errorStatus) {
+        return (
+            <tr id="units">
+                <td id="unit-type"><strong> Something went wrong loading Units. </strong></td>
+            </tr>
+        )
+    }
+    console.log(props)
+    return (
+        <tr id="units">
+            <td id="unit-type"><strong> Elective Units: </strong></td>
+            <td id="unit-list">{props.response.map((unit) => (
+                <pre> {unit.code}:{unit.name} (GPA {unit.gpa}) </pre>
+            ))}</td>
+        </tr>
     )
 }
