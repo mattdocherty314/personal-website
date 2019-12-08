@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const apiAddress = "http://localhost:3000";
+const apiAddress = "http://localhost:3030";
 
 export function useDataFromBackend(path, args={}) {
     const [loading, setLoading] = useState(true);

@@ -20,7 +20,7 @@ function getNewUnitList(evt) {
     let unitType = evt.target.value;
     let unitTitle = evt.target.options[evt.target.selectedIndex].text;
 
-    fetch(`http://localhost:3000/units?tags=${unitType},`)
+    fetch(`http://localhost:3030/units?tags=${unitType},`)
     .then((resp) => {
         return resp.json();
     })
