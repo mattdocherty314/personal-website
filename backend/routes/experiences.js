@@ -19,8 +19,9 @@ router.get('/', function(req, res, next) {
 
 function createQuery(userRequest) {
   let defQuery = {
-    'page': 1,
-    'numPerPage': 4
+    'type': ["work", "volunteer"],
+    'gt_time_start': 0,
+    'gt_time_end': -1
   }
 
   for (let setting in defQuery) {
@@ -38,11 +39,11 @@ function createQuery(userRequest) {
 
 function parseStringToCorrect(stringToParse) {
   var parsedItem = null;
-  
+
   if (stringToParse.indexOf(',') != -1) {
     return stringToParse.split(',')
   }
-
+  
   parsedItem = parseInt(stringToParse);
   if (!isNaN(parsedItem)) {
     return parsedItem;
@@ -59,16 +60,36 @@ function parseStringToCorrect(stringToParse) {
 
 function createMongoQuery(settings) {
   let mongoQuery = {
-    id: {
-      $gte: (settings.page-1) * settings.numPerPage,
-      $lte: settings.page * settings.numPerPage - 1
-    }
+    type: {
+        $in: settings.type
+    },
+    
+    $and: [
+        {
+            times: {
+                $elemMatch: {
+                    start: {
+                        $gte: settings.gt_time_start
+                    }
+                }
+            }
+        },
+        {
+            times: {
+                $elemMatch: {
+                    end: {
+                        $gte: settings.gt_time_end
+                    }
+                }
+            }
+        }
+    ]
   };
   return mongoQuery;
 }
 
 function sendToDB(query) {
-  return dbInterface.queryData('projects', query);
+  return dbInterface.queryData('experiences', query);
 }
 
 module.exports = router;
