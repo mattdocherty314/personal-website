@@ -4,9 +4,17 @@ import { useDataFromBackend } from '../api'
 
 export function Resume() {
 
-    let apiResp = useDataFromBackend('/units?tags=elective,');
-    let loading = apiResp.loading;
-    let error = apiResp.error;
+    let unitApiResp = useDataFromBackend('/units?tags=elective,');
+    let unitLoading = unitApiResp.loading;
+    let unitError = unitApiResp.error;
+
+    let experienceApiResp = useDataFromBackend('/experiences?all=true&type=it,volunteer');
+    let experienceLoading = unitApiResp.loading;
+    let experienceError = unitApiResp.error;
+
+    let workApiResp = useDataFromBackend('/experiences?type=work,');
+    let workLoading = unitApiResp.loading;
+    let workError = unitApiResp.error;
 
     return (
         <div id="resume">
@@ -30,7 +38,7 @@ export function Resume() {
                         <td><strong> Information Technology Major:</strong></td>
                         <td> Computer Science </td>
                     </tr>
-                    <UnitsComponent loadStatus={loading} errorStatus={error} response={apiResp.response}/>
+                    <UnitsComponent loadStatus={unitLoading} errorStatus={unitError} response={unitApiResp.response}/>
                     <strong><p> Type of Unit: </p></strong>
                     <select id="show-unit">
                         <option value="elective"> Elective Units </option>
@@ -44,48 +52,12 @@ export function Resume() {
             </p>
 
             <h2> Experience </h2>
+            <WorkComponent loadStatus={workLoading} errorStatus={workError} response={workApiResp.response}/>
+
+            <h2> Leadership &amp; Volunteering </h2>
+            <ExperienceComponent loadStatus={experienceLoading} errorStatus={experienceError} response={experienceApiResp.response}/>
+            
             <p>
-                <strong> School IT Technician </strong> <br/>
-                <em> Mansfield State High School </em> <br/>
-                Feb 2018 - Apr 2018, Dec 2018 - Oct 2019 <br/>
-                As a school IT technician, I and other senior technicians were
-                responsible for resolving issues relating to the school computers,
-                laptops and related techologies. For example, if a projector wasn't
-                connecting to a teacher computer, I had to diagnose whether it
-                was the cable or if the computer wasn't configured for the
-                projector. <br/>
-                The primary thing that I learnt from the job was that I don't
-                have to always know the answer to problems. I also learn't how
-                to effectively communicate the problem to co-workers so that they
-                can suggest solutions that weren't attempted. <br/>
-                <table>
-                    <tr>
-                        <td> <strong> Reference: </strong> </td>
-                        <td> Ben Agnew, Senior School IT Technician </td>
-                        <td> *@*.* </td>
-                        <td> #* </td>
-                    </tr>
-                </table> 
-            </p>
-
-            <h2> Skills &amp; Qualities </h2>
-            <ul>
-                <li> Problem Solver / Logical Thinker </li>
-                <li> Hard &amp; Determined Thinker </li>
-                <li> Team Player </li>
-                <li> IT &amp; Programming Skills </li>
-            </ul>
-
-            <h2> Activities </h2>
-            <p>
-                <stong> Leadership &amp; Volunteering </stong>
-                <ul>
-                    <li> SU QLD Youth Leadership </li>
-                    <li> QUT Student COnnect Leader </li>
-                    <li> CoderDojo Mentor Volunteer </li>
-                    <li> Gateway Baptist Coffee Shop Volunteer </li>
-                </ul>
-
                 <strong> Certifications &amp; Awards </strong>
                 <table>
                     <tr>
@@ -114,11 +86,11 @@ function UnitsComponent(props) {
     else if (props.errorStatus) {
         return (
             <tr id="units">
-                <td id="unit-type"><strong> Something went wrong loading Units. </strong></td>
+                <td id="unit-type"><strong> Something went wrong loading the units. </strong></td>
             </tr>
         )
     }
-    console.log(props)
+
     return (
         <tr id="units">
             <td id="unit-type"><strong> Elective Units: </strong></td>
@@ -127,4 +99,106 @@ function UnitsComponent(props) {
             ))}</td>
         </tr>
     )
+}
+
+function ExperienceComponent(props) {
+    if (props.loadStatus) {
+        return (
+            <div id="experiences">
+                <p><strong> Loading Experiences... </strong></p>
+            </div>
+        )
+    }
+    
+    else if (props.errorStatus) {
+        return (
+            <div id="experiences">
+                <p><strong> Something went wrong loading the experiences. </strong></p>
+            </div>
+        )
+    }
+
+    return (
+        <div id="experiences">
+            {props.response.map(experience => (
+                    <div>
+                        <h3>{experience.title}</h3>
+                        <em>{showMonthYears(experience.times)}</em> <br/>
+                        <strong> Skills Learnt </strong>
+                        <p>
+                            {experience.skills.map((skill) => (
+                            <li>{skill}</li>
+                            ))}
+                        </p>
+                    </div>
+                ))}
+        </div>
+    )
+}
+
+function WorkComponent(props) {
+    if (props.loadStatus) {
+        return (
+            <div id="work">
+                <p><strong> Loading Work Experience... </strong></p>
+            </div>
+        )
+    }
+    
+    else if (props.errorStatus) {
+        return (
+            <div id="work">
+                <p><strong> Something went wrong loading the work experience. </strong></p>
+            </div>
+        )
+    }
+
+    return (
+        <div id="work">
+            {props.response.map(work => (
+                    <div>
+                        <h3>{work.title}</h3>
+                        <em>{showMonthYears(work.times)}</em>
+                        <p>
+                            <strong> Skills Learnt </strong> <br/>
+                            {work.skills.map((skill) => (
+                            <li>{skill}</li>
+                            ))}
+
+                            <strong> Challenges Faced </strong> <br/>
+                            {work.challenges.map((challenge) => (
+                            <li>{challenge}</li>
+                            ))}
+                        </p>
+                    </div>
+                ))}
+        </div>
+    )
+}
+
+function showMonthYears(times) {
+    let monthYears = "";
+    times.forEach((period) => {
+        if (period.start == period.end) {
+            monthYears += `${convertUNIXToMonthYear(period.start)}; `; 
+        } else if (period.end == -1) {
+            monthYears += `${convertUNIXToMonthYear(period.start)} - ; `; 
+        }
+        else {
+            monthYears += `${convertUNIXToMonthYear(period.start)} -
+                           ${convertUNIXToMonthYear(period.end)}; `
+        }
+    });
+    
+    return monthYears;
+}
+
+function convertUNIXToMonthYear(unixTimestamp) {
+    const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+                        "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+
+    let month = new Date(unixTimestamp*1000).getUTCMonth();
+    let year = new Date(unixTimestamp*1000).getUTCFullYear();
+
+    return `${monthList[month]} ${year}`;
 }

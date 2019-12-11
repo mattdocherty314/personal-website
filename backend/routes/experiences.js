@@ -21,7 +21,8 @@ function createQuery(userRequest) {
   let defQuery = {
     'type': ["work", "volunteer"],
     'gt_time_start': 0,
-    'gt_time_end': -1
+    'gt_time_end': -1,
+    'all': false
   }
 
   for (let setting in defQuery) {
@@ -60,10 +61,6 @@ function parseStringToCorrect(stringToParse) {
 
 function createMongoQuery(settings) {
   let mongoQuery = {
-    type: {
-        $in: settings.type
-    },
-    
     $and: [
         {
             times: {
@@ -85,6 +82,16 @@ function createMongoQuery(settings) {
         }
     ]
   };
+
+  if (settings.all) {
+    mongoQuery.type = {
+      $all: settings.type
+    }
+  } else {
+    mongoQuery.type = {
+      $in: settings.type
+    }
+  }
   return mongoQuery;
 }
 
