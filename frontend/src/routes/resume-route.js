@@ -16,6 +16,10 @@ export function Resume() {
     let workLoading = unitApiResp.loading;
     let workError = unitApiResp.error;
 
+    let awardsApiResp = useDataFromBackend('/awards');
+    let awardsLoading = awardsApiResp.loading;
+    let awardsError = awardsApiResp.error;
+
     return (
         <div id="resume">
             <h1> Resume </h1>
@@ -57,19 +61,9 @@ export function Resume() {
             <h2> Leadership &amp; Volunteering </h2>
             <ExperienceComponent loadStatus={experienceLoading} errorStatus={experienceError} response={experienceApiResp.response}/>
             
-            <p>
-                <strong> Certifications &amp; Awards </strong>
-                <table>
-                    <tr>
-                        <td> GovHack 2017: </td>
-                        <td> <em> Honourable Mention Award </em> </td>
-                    </tr>
-                    <tr>
-                        <td> QUT Sem 1 2018: </td>
-                        <td> <em> Dean's Honour Award </em> </td>
-                    </tr>
-                </table>
-            </p>
+            <h2> Certifications &amp; Awards </h2>
+            <AwardComponent loadStatus={awardsLoading} errorStatus={awardsError} response={awardsApiResp.response}/>
+                
         </div>
     )
 }
@@ -170,6 +164,34 @@ function WorkComponent(props) {
                             <li>{challenge}</li>
                             ))}
                         </p>
+                    </div>
+                ))}
+        </div>
+    )
+}
+
+function AwardComponent(props) {
+    if (props.loadStatus) {
+        return (
+            <div id="award">
+                <p><strong> Loading Awards &amp; Certifications... </strong></p>
+            </div>
+        )
+    }
+    
+    else if (props.errorStatus) {
+        return (
+            <div id="award">
+                <p><strong> Something went wrong loading the awards &amp; certifications. </strong></p>
+            </div>
+        )
+    }
+
+    return (
+        <div id="award">
+            {props.response.map(award => (
+                    <div>
+                        <h3>{award.title}</h3>
                     </div>
                 ))}
         </div>
