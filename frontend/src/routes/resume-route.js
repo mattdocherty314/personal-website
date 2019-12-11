@@ -201,9 +201,9 @@ function AwardComponent(props) {
 function showMonthYears(times) {
     let monthYears = "";
     times.forEach((period) => {
-        if (period.start == period.end) {
+        if (period.start === period.end) {
             monthYears += `${convertUNIXToMonthYear(period.start)}; `; 
-        } else if (period.end == -1) {
+        } else if (period.end === -1) {
             monthYears += `${convertUNIXToMonthYear(period.start)} - ; `; 
         }
         else {
