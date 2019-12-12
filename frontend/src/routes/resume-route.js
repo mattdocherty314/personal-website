@@ -25,35 +25,39 @@ export function Resume() {
             <h1> R&eacute;sum&eacute; </h1>
             
             <h2> Education </h2>
-            <p>
-                <strong> Bachelor of Engineering (Honours) / Information Technology </strong><br/>
-                <em> Queensland University of Technology </em> <br/>
-                Jan 2018 - Est. Nov 2022 <br/>
-                <table>
-                <tr>
-                        <td><strong> Current GPA: </strong></td>
-                        <td> 5.625 </td>
-                    </tr>
+            <div>
+                <p>
+                    <h3> Bachelor of Engineering (Honours) / Information Technology </h3><br/>
+                    <em> Queensland University of Technology </em> <br/>
+                    Jan 2018 - Est. Nov 2022 <br/>
+                    <table>
                     <tr>
-                        <td><strong> Engineering (Honours) Major: </strong></td>
-                        <td> Computer and Software Systems </td>
-                    </tr>
-                    <tr>
-                        <td><strong> Information Technology Major:</strong></td>
-                        <td> Computer Science </td>
-                    </tr>
-                    <UnitsComponent loadStatus={unitLoading} errorStatus={unitError} response={unitApiResp.response}/>
-                    <strong><p> Type of Unit: </p></strong>
-                    <select id="show-unit">
-                        <option value="elective"> Elective Units </option>
-                        <option value="core"> Core Units </option>
-                        <option value="it"> I.T. Units</option>
-                        <option value="security"> Security Units </option>
-                        <option value="engineering"> Engineering Units </option>
-                        <option value="maths"> Mathematics Units </option>
-                    </select>
-                </table>
-            </p>
+                            <td><strong> Current GPA: </strong></td>
+                            <td> 5.625 </td>
+                        </tr>
+                        <tr>
+                            <td><strong> Engineering (Honours) Major: </strong></td>
+                            <td> Computer and Software Systems </td>
+                        </tr>
+                        <tr>
+                            <td><strong> Information Technology Major:</strong></td>
+                            <td> Computer Science </td>
+                        </tr>
+                        <UnitsComponent loadStatus={unitLoading} errorStatus={unitError} response={unitApiResp.response}/>
+                        <p>
+                            <strong> Type of Unit: </strong>
+                            <select id="show-unit">
+                                <option value="elective"> Elective Units </option>
+                                <option value="core"> Core Units </option>
+                                <option value="it"> I.T. Units</option>
+                                <option value="security"> Security Units </option>
+                                <option value="engineering"> Engineering Units </option>
+                                <option value="maths"> Mathematics Units </option>
+                            </select>
+                        </p>
+                    </table>
+                </p>
+            </div>
 
             <h2> Experience </h2>
             <WorkComponent loadStatus={workLoading} errorStatus={workError} response={workApiResp.response}/>
@@ -117,7 +121,7 @@ function ExperienceComponent(props) {
             {props.response.map(experience => (
                     <div>
                         <h3>{experience.title}</h3>
-                        <em>{showMonthYears(experience.times)}</em> <br/>
+                        <p><em>{showMonthYears(experience.times)}</em></p>
                         <strong> Skills Learnt </strong>
                         <p>
                             {experience.skills.map((skill) => (
@@ -152,14 +156,14 @@ function WorkComponent(props) {
             {props.response.map(work => (
                     <div>
                         <h3>{work.title}</h3>
-                        <em>{showMonthYears(work.times)}</em>
+                        <p><em>{showMonthYears(work.times)}</em></p>
                         <p>
-                            <strong> Skills Learnt </strong> <br/>
+                            <p><strong> Skills Learnt </strong></p>
                             {work.skills.map((skill) => (
                             <li>{skill}</li>
                             ))}
 
-                            <strong> Challenges Faced </strong> <br/>
+                            <p><strong> Challenges Faced </strong></p>
                             {work.challenges.map((challenge) => (
                             <li>{challenge}</li>
                             ))}
@@ -190,9 +194,7 @@ function AwardComponent(props) {
     return (
         <div id="award">
             {props.response.map(award => (
-                    <div>
-                        <h3>{award.title}</h3>
-                    </div>
+                    <p>{award.title}</p>
                 ))}
         </div>
     )
