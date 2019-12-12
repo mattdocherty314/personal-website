@@ -13,7 +13,7 @@ function App() {
                 <aside><ul id="nav">
                     <Link to={"/"}><li>Home</li></Link>
                     <Link to={"/projects"}><li>Projects</li></Link>
-                    <Link to={"/resume"}><li>Resume</li></Link>
+                    <Link to={"/resume"}><li>R&eacute;sum&eacute;</li></Link>
                     </ul></aside>
                 <main>
                     <Route exact path="/" component={Menu} />

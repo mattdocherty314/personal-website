@@ -22,7 +22,7 @@ export function Resume() {
 
     return (
         <div id="resume">
-            <h1> Resume </h1>
+            <h1> R&eacute;sum&eacute; </h1>
             
             <h2> Education </h2>
             <p>
