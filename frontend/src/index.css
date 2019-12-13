@@ -75,3 +75,68 @@
 #resume li {
   padding: 0.1%;
 }
+
+
+#projects {
+  margin: 3%;
+}
+#projects div {
+  padding: 0% 2% 5% 2%;
+  min-width: 46%;
+  flex-wrap: wrap;
+}
+#projects ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#projects h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 3em;
+
+  color: royalblue;
+
+  margin: 2%;
+}
+#projects h2 {
+  font-size: 1.5em;
+
+  color: darkblue;
+}
+#projects h3 {
+  font-size: 1.2em;
+}
+#projects p {
+  padding: 0.5%;
+}
+#projects li {
+  padding: 0.1%;
+}
+#projects .project-route {
+  text-align: center;
+  
+}
+#projects .project-route a {
+  color: darkblue;
+  background-color: cornflowerblue;
+  text-decoration: none;
+
+  padding: 1% 5% 1% 5%;
+}
+#projects .project-route a:hover {
+  background-color: white;
+}
+#projects #page-select {
+  text-align: center;
+}
+#projects #page-select button {
+  color: darkblue;
+  background-color: cornflowerblue;
+
+  padding: 1% 5% 1% 5%;
+}
+#projects #page-select button:hover {
+  background-color: white;
+}
+#projects #page-select button:disabled {
+  background-color: aliceblue;
+}

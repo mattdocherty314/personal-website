@@ -3,7 +3,7 @@ import React from 'react';
 import { useDataFromBackend } from '../api';
 
 export function Projects() {
-    let apiResp = useDataFromBackend('/projects?numPerPage=10');
+    let apiResp = useDataFromBackend('/projects');
     let loading = apiResp.loading;
     let error = apiResp.error;
 
@@ -37,6 +37,10 @@ export function Projects() {
                      web={res.webpage} auth={res.authors} />
                 ))}
             </ul>
+            <p id="page-select">
+                <button disabled>Pevious Page</button>
+                <button> Next Page </button>
+            </p>
         </div>
     )
 }
@@ -49,8 +53,10 @@ function Project(props) {
             <p> Version: <em>{props.ver}</em> &emsp; Last modified: <em>{convertUNIXToDate(props.last_mod)}</em></p>
             
             <img src={`{${props.screenshot}`} alt="Screenshot"/><br/>
-            <a href={`${props.web}`}> Test Out </a> &emsp;
-            <a href={`${props.link}`}> Repository </a> <br/>
+            <p className="project-route">
+                <a href={`${props.web}`}> Test Out </a> &emsp;
+                <a href={`${props.link}`}> Repository </a> <br/>
+            </p>
             <p> Authors: </p>
             {props.auth.map(author => (
                 <p> &emsp; {author} </p>

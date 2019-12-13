@@ -31,7 +31,6 @@ function getNewUnitList(evt) {
         });
     })
     .catch((err) => {
-        console.log(err)
         unitTitleElement.innerHTML = "<strong> Something went wrong loading Units. </strong>"
     })
 }
