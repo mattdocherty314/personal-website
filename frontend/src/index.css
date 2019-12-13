@@ -111,24 +111,25 @@
 #projects li {
   padding: 0.1%;
 }
-#projects .project-route {
+#projects .project-links {
   text-align: center;
-  
 }
-#projects .project-route a {
+#projects .project-links a {
   color: darkblue;
   background-color: cornflowerblue;
   text-decoration: none;
 
   padding: 1% 5% 1% 5%;
 }
-#projects .project-route a:hover {
+#projects .project-links a:hover {
   background-color: white;
 }
 #projects #page-select {
   text-align: center;
 }
 #projects #page-select button {
+  font-size: 1.2em;
+
   color: darkblue;
   background-color: cornflowerblue;
 

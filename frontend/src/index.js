@@ -17,7 +17,7 @@ function App() {
                     </ul></aside>
                 <main>
                     <Route exact path="/" component={Menu} />
-                    <Route exact path="/projects" component={Projects} />
+                    <Route path="/projects" component={Projects} />
                     <Route path="/resume" component={Resume} />
                 </main>
             </div>

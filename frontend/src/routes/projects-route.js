@@ -3,7 +3,8 @@ import React from 'react';
 import { useDataFromBackend } from '../api';
 
 export function Projects() {
-    let apiResp = useDataFromBackend('/projects');
+    let pageNum = getPageNumberFromURL();
+    let apiResp = useDataFromBackend(`/projects?page=${pageNum}`);
     let loading = apiResp.loading;
     let error = apiResp.error;
 
@@ -38,8 +39,8 @@ export function Projects() {
                 ))}
             </ul>
             <p id="page-select">
-                <button disabled>Pevious Page</button>
-                <button> Next Page </button>
+                <button id="prev-page"> Pevious Page </button>
+                <button id="next-page"> Next Page </button>
             </p>
         </div>
     )
@@ -53,7 +54,7 @@ function Project(props) {
             <p> Version: <em>{props.ver}</em> &emsp; Last modified: <em>{convertUNIXToDate(props.last_mod)}</em></p>
             
             <img src={`{${props.screenshot}`} alt="Screenshot"/><br/>
-            <p className="project-route">
+            <p className="project-links">
                 <a href={`${props.web}`}> Test Out </a> &emsp;
                 <a href={`${props.link}`}> Repository </a> <br/>
             </p>
@@ -67,4 +68,14 @@ function Project(props) {
 
 function convertUNIXToDate(unixTimestamp) {
     return new Date(unixTimestamp*1000).toDateString();
+}
+
+function getPageNumberFromURL() {
+    let url = window.location.href;
+    let urlDir = url.split("/");
+    if (isNaN(parseInt(urlDir[urlDir.length-1]))) {
+        return "1";
+    } else {
+        return urlDir[urlDir.length-1];
+    }
 }
