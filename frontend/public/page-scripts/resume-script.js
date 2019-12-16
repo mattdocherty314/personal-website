@@ -1,8 +1,8 @@
 function pageLoad() {
-    window.setInterval(tick, 1000);
+    window.setInterval(resumeScriptTick, 1000);
 }
 
-function tick() {
+function resumeScriptTick() {
     let unitSelectElement = document.getElementById('show-unit');
     if ((unitSelectElement !== null)) {
         unitSelectElement.removeEventListener('change', getNewUnitList);

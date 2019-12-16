@@ -1,8 +1,8 @@
 function pageLoad() {
-    window.setInterval(tick, 1000);
+    window.setInterval(projectsScriptTick, 1000);
 }
 
-function tick() {
+function projectsScriptTick() {
     let prevPageElement = document.getElementById("prev-page");
     if (prevPageElement !== null) {        
         prevPageElement.removeEventListener("click", goToPrevPage);
