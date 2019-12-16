@@ -40,7 +40,7 @@ body {
   text-align: center;
 }
 #nav li:hover {
-  background-color: white;
+  background-color: lightblue;
 }
 #nav a li {
   text-decoration: none;
@@ -76,6 +76,17 @@ body {
 }
 #resume li {
   padding: 0.1%;
+}
+#resume a {
+  color: darkblue;
+  background-color: cornflowerblue;
+  text-decoration: none;
+
+  float: right;
+  padding: 1% 5% 1% 5%;
+}
+#resume a:hover {
+  background-color: royalblue;
 }
 
 
@@ -130,7 +141,7 @@ body {
   padding: 1% 5% 1% 5%;
 }
 #projects .project-links a:hover {
-  background-color: white;
+  background-color: royalblue;
 }
 #projects #page-select {
   text-align: center;
@@ -144,8 +155,8 @@ body {
   padding: 1% 5% 1% 5%;
 }
 #projects #page-select button:hover {
-  background-color: white;
+  background-color: royalblue;
 }
 #projects #page-select button:disabled {
-  background-color: aliceblue;
+  background-color: lightblue;
 }

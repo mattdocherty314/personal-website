@@ -23,6 +23,8 @@ export function Resume() {
     return (
         <div id="resume">
             <h1> R&eacute;sum&eacute; </h1>
+
+            <a id="download" href="./files/Matthew Docherty - Resume.pdf">Download</a>
             
             <h2> Education </h2>
             <div>
