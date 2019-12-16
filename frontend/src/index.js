@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Projects } from './routes/projects-route';
 import { Resume } from './routes/resume-route';
+import { Test } from './routes/test-route';
 import './index.css'
 
 function App() {
@@ -14,11 +15,12 @@ function App() {
                     <Link to={"/"}><li>Home</li></Link>
                     <Link to={"/projects"}><li>Projects</li></Link>
                     <Link to={"/resume"}><li>R&eacute;sum&eacute;</li></Link>
-                    </ul></aside>
+                </ul></aside>
                 <main>
                     <Route exact path="/" component={Menu} />
                     <Route path="/projects" component={Projects} />
                     <Route path="/resume" component={Resume} />
+                    <Route path="/test" component={Test} />
                 </main>
             </div>
         </Router>
