@@ -5,7 +5,9 @@
   padding: 0;
   border: 0;
 }
-
+body {
+  background-color: lightblue;
+}
 
 #main {
   background-color: royalblue;
@@ -83,6 +85,7 @@
 #projects div {
   padding: 0% 2% 5% 2%;
   min-width: 46%;
+  max-width: 46%;
   flex-wrap: wrap;
 }
 #projects ul {
@@ -110,6 +113,11 @@
 }
 #projects li {
   padding: 0.1%;
+}
+#projects img {
+  width: 98%;
+  padding: 1%;
+  display: block;
 }
 #projects .project-links {
   text-align: center;

@@ -53,7 +53,7 @@ function Project(props) {
             <h3> {props.desc} </h3>
             <p> Version: <em>{props.ver}</em> &emsp; Last modified: <em>{convertUNIXToDate(props.last_mod)}</em></p>
             
-            <img src={`{${props.screenshot}`} alt="Screenshot"/><br/>
+            <img src={props.screenshot} alt="Screenshot"/><br/>
             <p className="project-links">
                 <a href={`${props.web}`}> Test Out </a> &emsp;
                 <a href={`${props.link}`}> Repository </a> <br/>
