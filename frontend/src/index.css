@@ -93,7 +93,12 @@ iframe {
 #resume a:hover {
   background-color: royalblue;
 }
+#resume select {
+  padding: 1%;
 
+  font-size: 1em;
+  background-color: lightblue;
+}
 
 #projects {
   margin: 3%;
