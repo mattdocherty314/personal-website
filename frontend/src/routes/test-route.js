@@ -6,7 +6,7 @@ export function Test() {
         if (window.location.href.indexOf(impl[proj]) !== -1) {
             let iframeSource = `../test-projects/${impl[proj]}/index.html`;
             return (
-                <iframe src={iframeSource}></iframe>
+                <iframe id="test" src={iframeSource}></iframe>
             )
         }
     }
