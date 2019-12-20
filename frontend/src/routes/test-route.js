@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function Test() {
-    let impl = ["encrypt-decrypt", "genetic-evolution"];
+    let impl = ["encrypt-decrypt", "genetic-evolution", "game-of-life"];
     for (let proj = 0; proj < impl.length; proj++) {
         if (window.location.href.indexOf(impl[proj]) !== -1) {
             let iframeSource = `../test-projects/${impl[proj]}/index.html`;
