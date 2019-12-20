@@ -3,7 +3,7 @@ import React from 'react';
 export function Test() {
     let impl = [
         "encrypt-decrypt", "genetic-evolution", "game-of-life", "3d-render",
-        "2d-shader"
+        "2d-shader", "day-planner"
     ];
     for (let proj = 0; proj < impl.length; proj++) {
         if (window.location.href.indexOf(impl[proj]) !== -1) {
