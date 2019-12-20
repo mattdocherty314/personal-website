@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title> Home </title>
+        <script src="api-get.js"></script>
+        <script src="search.js"></script>
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+   <link rel="stylesheet" href="../style.css"/>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+crossorigin=""></script>
+    </head>
+    <body>
+        <a href="about.html">About</a>
+        <h1> Location Data Search </h1>
+        <p> Data Search: </p><input id="input_search"/>
+        <p> Location: </p><input id="location_search"/>
+        <p> Range (km): </p><input id="range" type="number" min="0">
+        <br/><br/>
+        <button type="submit" id="search"> Search </button>
+        <p id="location_result" hidden></p>
+        <p id="input_result" hidden></p>
+        <p id="run"></p>
+
+        <div id="results">
+        </div>
+    <div id="map" style="width: 600px; height: 400px;"></div>
+</body>
+</html>

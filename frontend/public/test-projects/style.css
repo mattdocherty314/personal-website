@@ -14,10 +14,31 @@ h1 {
 
     margin: 2%;
 }
+h2 {
+    font-size: 1.5em;
+  
+    color: darkblue;
+  }
 p {
     font-size: 1.5em;
 
     padding: 0.5%;
+}
+li {
+    font-size: 1.2em;
+
+    padding: 0.5%;
+}
+a {
+    color: darkblue;
+    background-color: cornflowerblue;
+    text-decoration: none;
+  
+    float: right;
+    padding: 1% 5% 1% 5%;
+}
+a:hover {
+    background-color: royalblue;
 }
 select {
     font-size: 1.25em;

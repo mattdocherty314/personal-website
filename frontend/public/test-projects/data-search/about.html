@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title> About </title>
+        <link rel="stylesheet" href="../style.css"/>
+    </head>
+    <body>
+        <a href="index.html">Home</a>
+        <h1> Location Data Search </h1>
+        
+        <h2>What is the goal? </h2>
+        <li>People can search for 'electronics store in Brisbane CBD' and find what they're looking for but searching for 'Accident Data Brisbane CBD' returns semi-relevant or irrelevant data.</li>
+        <li>You can search for the data in the 'Input Data' search box andthe location in the 'Location Search' box. This will return all the data it has found.</li>
+
+        <h2>What did you use? </h2>
+        <li>Plain NodeJS was used as the server.</li>
+        <li>HTML, CSS & JavaScript was used to develop the client.</li>
+        <li>OpenStreetMaps was used with Leaflet to display the location data.</li>
+        
+        <h2>What were the roles?</h2>
+        <li>Matthew: Communicating with the APIs and the search.</li>
+        <li>Reuben: Displays the data in a meaningful format.</li>
+
+        <h2>How does it work?</h2>
+        <li>'Data Search' searches the description of the data for matching values.</li>
+        <li>'Location Search' searches the data's GPS co-ords for if it is within the range.</li>
+        <li>Once the data found it is returned as JSON and is filtered through the output methods.</li>
+
+        <h2>What were some of the difficulties?</h2>
+        <li>Getting all the names of the same type of data, e.g Longitude/Long & Latitude/Lat.</li>
+        <li>Interacting with the API.</li>
+
+        <h2>What still needs to be done?</h2>
+        <li>Designing the UI.</li>
+        <li>Adding a way to add datasets.</li>
+        <li>More search filters.</li>
+
+        <h2>Credit</h2>
+        <li>OpenStreetMap for the Geocoding API and map.</li>
+        <li>Data Gov QLD for the data and their APIs.</li>
+    </body>
+</html>
