@@ -130,6 +130,8 @@ iframe {
 }
 #projects h3 {
   font-size: 1.2em;
+  text-align: justify;
+  text-justify: auto;
 }
 #projects p {
   padding: 0.5%;
