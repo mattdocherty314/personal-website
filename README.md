@@ -26,7 +26,10 @@ This program has been tested on the above dependencies, without any issues. If y
 * Put onto AWS EC2 instance
 
 ## TODO
-* Complete the `/test` route
-    * Needs other programs to be ported to JavaScript
 * Make a login system
 * Make a content editor
+* Make API docs
+    * API needs to be relatively complete
+* Refactoring & commenting of code
+* Directory tidy-up
+* Restyling web pages
