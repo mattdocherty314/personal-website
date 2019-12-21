@@ -145,6 +145,10 @@ iframe {
   padding: 1%;
   display: block;
 }
+#projects .tech-icon {
+  width: 20%;
+  display: inline;
+}
 #projects .project-links {
   text-align: center;
 }

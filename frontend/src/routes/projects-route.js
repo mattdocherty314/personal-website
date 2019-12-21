@@ -35,7 +35,7 @@ export function Projects() {
                 {projectsResp.map((res) => (
                     <Project title={res.title} desc={res.desc} last_mod={res.last_modified}
                      ver={res.ver} screenshot={res.screenshot} link={res.link}
-                     web={res.webpage} auth={res.authors} />
+                     web={res.webpage} auth={res.authors} technologies={res.technologies}/>
                 ))}
             </ul>
             <p id="page-select">
@@ -58,7 +58,15 @@ function Project(props) {
                 <a href={`${props.web}`}> Test Out </a> &emsp;
                 <a href={`${props.link}`}> Repository </a> <br/>
             </p>
-            <p> Authors: </p>
+            <strong><p>Technologies:</p></strong>
+            {props.technologies.map((tech) => (
+                <img 
+                    class="tech-icon"
+                    alt={tech}
+                    src={`http://localhost:3000/images/technologies-icons/${tech.toLowerCase()}.png`}
+                />
+            ))}
+            <strong><p> Authors: </p></strong>
             {props.auth.map(author => (
                 <p> &emsp; {author} </p>
             ))}
