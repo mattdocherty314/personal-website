@@ -25,6 +25,9 @@ This program has been tested on the above dependencies, without any issues. If y
 ### v1.0.0
 * Put onto AWS EC2 instance
 
+### v1.1.0
+* Added `/test` route
+
 ## TODO
 * Make a login system
 * Make a content editor
