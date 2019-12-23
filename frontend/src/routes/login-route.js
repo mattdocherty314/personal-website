@@ -8,7 +8,7 @@ export function Login() {
             <input id="user"></input><br/><br/><br/><br/>
             <h2>Password</h2><br/>
             <input id="pass" type="password"></input><br/><br/><br/><br/>
-            <button>Login</button>
+            <button id="submit-login">Login</button>
         </div>
     )
 }

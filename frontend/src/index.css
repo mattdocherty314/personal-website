@@ -192,11 +192,8 @@ h2 {
   padding: 0.5% 5% 0.5% 5%;
 }
 #login button:hover {
-  font-size: 1.5em;
-
   background-color: royalblue;
-  border: none;
-
-  margin: 0 auto;
-  padding: 0.5% 5% 0.5% 5%;
+}
+#projects #page-select button:disabled {
+  background-color: lightblue;
 }

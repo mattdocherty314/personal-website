@@ -8,7 +8,7 @@ var jwtSecret = require('../jwt.js');
 
 /* POST users listing. */
 router.post('/', function(req, res, next) {
-  let requestQuery = req.query;
+  let requestQuery = req.body;
   
   let dbQuery = createMongoQuery(requestQuery);
   
@@ -16,7 +16,6 @@ router.post('/', function(req, res, next) {
   .then((dbRes, err) => {
     let password = requestQuery.password;
     if (bcrypt.compareSync(password, dbRes[0].passwordhash)) {
-      console.log(jwtSecret.value)
 
       let token = jwt.sign({
         exp: Math.floor(Date.now()/1000) + 3600,
