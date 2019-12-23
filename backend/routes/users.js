@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var bcrypt = require('bcryptjs')
+var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
 
 var dbInterface = require('../database/db-interface.js');
+var jwtSecret = require('../jwt.js');
 
 /* GET resume listing. */
 router.get('/', function(req, res, next) {
@@ -14,13 +16,23 @@ router.get('/', function(req, res, next) {
   .then((dbRes, err) => {
     let password = requestQuery.password;
     if (bcrypt.compareSync(password, dbRes[0].passwordhash)) {
+      console.log(jwtSecret.value)
+
+      let token = jwt.sign({
+        exp: Math.floor(Date.now()/1000) + 3600,
+        data: {
+          username: dbRes.username,
+          access: dbRes.access
+        }
+      }, jwtSecret.value);
+      
       
       res.setHeader('Content-Type', 'application/json');
-      res.send({success: `${dbRes[0].perms}`});
+      res.send({success: `${token}`});
     }
     else {
       res.setHeader('Content-Type', 'application/json');
-      res.send({success: false});
+      res.send({success: null});
     }
   })
 });

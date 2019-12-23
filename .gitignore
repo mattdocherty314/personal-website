@@ -1,3 +1,4 @@
 **/node_modules
 /backend/database/mongo-config.json
 /backend/database/mongo-import.js
+/backend/jwt.js
