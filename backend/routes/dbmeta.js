@@ -3,7 +3,7 @@ var router = express.Router();
 
 var dbInterface = require('../database/db-interface.js');
 
-/* GET resume listing. */
+/* GET dbmeta listing. */
 router.get('/', function(req, res, next) {
   sendToDB({})
   .then((dbRes, err) => {

@@ -6,8 +6,8 @@ var jwt = require('jsonwebtoken');
 var dbInterface = require('../database/db-interface.js');
 var jwtSecret = require('../jwt.js');
 
-/* GET resume listing. */
-router.get('/', function(req, res, next) {
+/* POST users listing. */
+router.post('/', function(req, res, next) {
   let requestQuery = req.query;
   
   let dbQuery = createMongoQuery(requestQuery);

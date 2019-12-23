@@ -3,7 +3,7 @@ var router = express.Router();
 
 var dbInterface = require('../database/db-interface.js');
 
-/* GET resume listing. */
+/* GET units listing. */
 router.get('/', function(req, res, next) {
   let requestQuery = req.query;
   
