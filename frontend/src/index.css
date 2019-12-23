@@ -13,6 +13,19 @@ iframe {
   height: 96%;
   width: 100%;
 }
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 3em;
+
+  color: royalblue;
+
+  margin: 2%;
+}
+h2 {
+  font-size: 1.5em;
+
+  color: darkblue;
+}
 
 
 #main {
@@ -61,19 +74,7 @@ iframe {
 #resume div {
   padding: 0% 2% 2% 2%;
 }
-#resume h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 3em;
 
-  color: royalblue;
-
-  margin: 2%;
-}
-#resume h2 {
-  font-size: 1.5em;
-
-  color: darkblue;
-}
 #resume h3 {
   font-size: 1.2em;
 }
@@ -114,19 +115,6 @@ iframe {
 #projects ul {
   display: flex;
   flex-wrap: wrap;
-}
-#projects h1 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 3em;
-
-  color: royalblue;
-
-  margin: 2%;
-}
-#projects h2 {
-  font-size: 1.5em;
-
-  color: darkblue;
 }
 #projects h3 {
   font-size: 1.1em;
@@ -178,4 +166,37 @@ iframe {
 }
 #projects #page-select button:disabled {
   background-color: lightblue;
+}
+
+
+#login {
+  margin: 3%;
+}
+#login input {
+  font-size: 1.5em;
+
+  background-color: cornflowerblue;
+  border: none;
+
+  width: 100%;
+  padding: 0.5%;
+}
+#login button {
+  font-size: 1.5em;
+
+  color: darkblue;
+  background-color: cornflowerblue;
+  border: none;
+
+  margin: 0 auto;
+  padding: 0.5% 5% 0.5% 5%;
+}
+#login button:hover {
+  font-size: 1.5em;
+
+  background-color: royalblue;
+  border: none;
+
+  margin: 0 auto;
+  padding: 0.5% 5% 0.5% 5%;
 }

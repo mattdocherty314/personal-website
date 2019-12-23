@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Projects } from './routes/projects-route';
 import { Resume } from './routes/resume-route';
 import { Test } from './routes/test-route';
+import { Login } from './routes/login-route';
 import './index.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/projects" component={Projects} />
                     <Route path="/resume" component={Resume} />
                     <Route path="/test" component={Test} />
+                    <Route path="/login" component={Login} />
                 </main>
             </div>
         </Router>
