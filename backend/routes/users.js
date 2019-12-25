@@ -20,11 +20,10 @@ router.post('/', function(req, res, next) {
       let token = jwt.sign({
         exp: Math.floor(Date.now()/1000) + 3600,
         data: {
-          username: dbRes.username,
-          access: dbRes.access
+          username: dbRes[0].username,
+          access: dbRes[0].perms
         }
       }, jwtSecret.value);
-      
       
       res.setHeader('Content-Type', 'application/json');
       res.send({success: `${token}`});

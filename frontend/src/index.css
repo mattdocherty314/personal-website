@@ -26,6 +26,9 @@ h2 {
 
   color: darkblue;
 }
+h3 {
+  font-size: 1.2em;
+}
 
 
 #main {
@@ -75,9 +78,6 @@ h2 {
   padding: 0% 2% 2% 2%;
 }
 
-#resume h3 {
-  font-size: 1.2em;
-}
 #resume p {
   padding: 0.5%;
 }
@@ -195,5 +195,15 @@ h2 {
   background-color: royalblue;
 }
 #projects #page-select button:disabled {
+  background-color: lightblue;
+}
+
+#edit {
+  margin: 3%;
+}
+#edit select {
+  padding: 1%;
+
+  font-size: 1.25em;
   background-color: lightblue;
 }

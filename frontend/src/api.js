@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 
 const apiAddress = "http://localhost:3030";
 
-export function useDataFromBackend(path, args={}) {
+export function useDataFromBackend(path, args={}, param={method: "GET"}) {
     const [loading, setLoading] = useState(true);
     const [response, setResponse] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        getDataFromBackend(path, args)
+        getDataFromBackend(path, args, param)
         .then((response) => {
             setResponse(response);
             setLoading(false);
@@ -22,11 +22,8 @@ export function useDataFromBackend(path, args={}) {
     return {loading, response, error};
 }
 
-function getDataFromBackend(path, args) {
+function getDataFromBackend(path, args, param) {
     let url = `${apiAddress}${path}`;
-    let param = {
-        method: "GET"
-    };
 
     return fetch(url, param)
     .then((res) => {
