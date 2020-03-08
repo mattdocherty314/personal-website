@@ -1,14 +1,21 @@
+let dbData = null;
+
 function pageLoad() {
     window.setInterval(editScriptTick, 1000);
 }
 
 function editScriptTick() {
-    let selectDBSelectElement = document.getElementById('select-db');
-    if ((selectDBSelectElement !== null)) {
-        selectDBSelectElement.removeEventListener('change', getDBInfo);
-        selectDBSelectElement.addEventListener('change', getDBInfo);
+    let selectDB = document.getElementById('select-db');
+    if ((selectDB !== null)) {
+        selectDB.removeEventListener('change', getDBInfo);
+        selectDB.addEventListener('change', getDBInfo);
     }
     
+    let selectEntry = document.getElementById('select-entry');
+    if ((selectEntry !== null)) {
+        selectEntry.removeEventListener('change', fillFields);
+        selectEntry.addEventListener('change', fillFields);
+    }
 }
 
 function getDBInfo(evt) {
@@ -46,12 +53,52 @@ function getDBInfo(evt) {
         console.log(err);
     })
 
-    let dbData = fetch(`http://localhost:3030/dbdata?dbname=${dbSelected}`)
+    dbData = fetch(`http://localhost:3030/dbdata?dbname=${dbSelected}`)
     .then((resp) => {
         return resp.json();
     })
+    .then((dbResp) => {
+        let selectEntryElement = document.getElementById("select-entry");
+        
+        selectEntryElement.innerHTML = "<option id='id-new'>New ID</option>";
+        for (data of dbResp) {
+            selectEntryElement.innerHTML += `<option id='id-${data.id}'>ID: ${data.id}</option>`;
+        }
 
-    
+        return dbResp;
+    }) 
+}
+
+function fillFields() {
+    Promise.resolve(dbData)
+    .then((data) => {
+        let selectEntry = document.getElementById("select-entry");
+        let selectEntryID = selectEntry.selectedIndex - 1;
+
+        let editButton = document.getElementById("edit-button");
+        if (selectEntryID === -1) {
+            editButton.innerHTML = "Insert Data";
+        }
+        else {
+            editButton.innerHTML = "Modify Data";
+            
+            let selectEntryData = data[selectEntryID];
+            Object.keys(selectEntryData).map((key) => {
+                if (key !== "_id") {
+                    if (key === "last_modified") {
+                        convertTStoInDate(selectEntryData.last_modified, "last_modified");
+                    } else if (key === "times") {
+                        convertTStoInDate(selectEntryData.times[0].start, "start");
+                        convertTStoInDate(selectEntryData.times[0].end, "end");
+                    }
+                    else {
+                        let keyElement = document.getElementById(key);
+                        keyElement.value = selectEntryData[key];
+                    }
+                }
+            })
+        }
+    })
 }
 
 function generateInputType(element, key, type) {
@@ -78,7 +125,6 @@ function generateInputType(element, key, type) {
             element.innerHTML += `<div id=${key}></div>`;
 
             let innerElement = document.getElementById(key);
-            console.log(type);
             Object.keys(type).map((ind) => {
                 innerElement.innerHTML += `<p>${ind}</p>`;
                 generateInputType(innerElement, ind, type[ind])
@@ -102,4 +148,26 @@ function getCookie(name) {
         }
     }
     return "";
+}
+
+function convertTStoInDate(timestamp, elementID) {
+    let keyElement = document.getElementById(elementID);
+    let dateTS = new Date();
+
+    timestamp = (timestamp === -1 ? Date.now() : timestamp * 1000);
+    dateTS.setTime(timestamp);
+
+    let dateYear = dateTS.getUTCFullYear();
+    let dateMonth = dateTS.getUTCMonth()+1;
+    let dateDay = dateTS.getUTCDate();
+
+    if (dateMonth < 10) {
+        dateMonth = `0${dateMonth}`;
+    } if (dateDay < 10) {
+        dateDay = `0${dateDay}`;
+    }
+
+    let dateValue = `${dateYear}-${dateMonth}-${dateDay}`;
+    console.log(dateValue);
+    keyElement.value = dateValue;
 }
