@@ -1,6 +1,8 @@
 function pageLoad() {
     let loginButton = document.getElementById("submit-login");
-    loginButton.addEventListener("click", sendLoginRequest);
+    if (loginButton !== null) {
+        loginButton.addEventListener("click", sendLoginRequest);
+    }
 }
 
 function sendLoginRequest() {
