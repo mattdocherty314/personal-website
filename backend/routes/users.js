@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
         exp: Math.floor(Date.now()/1000) + 3600,
         data: {
           username: dbRes[0].username,
-          access: dbRes[0].perms
+          access: dbRes[0].access
         }
       }, jwtSecret.value);
       
