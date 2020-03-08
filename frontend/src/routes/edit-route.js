@@ -46,10 +46,11 @@ export function Edit() {
 
             <h2>Select Entry</h2>
             <select id="select-entry">
-                <option>No Database Selected!</option>
+                <option id="id-none">No Database Selected!</option>
             </select><br/><br/>
             <div id="entry-fields">
             </div>
+            <button id="edit-button"> Insert Data </button>
         </div>
     )
 }
