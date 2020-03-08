@@ -201,9 +201,32 @@ h3 {
 #edit {
   margin: 3%;
 }
+#edit h3 {
+  padding: 2% 0 0.5% 0;
+}
 #edit select {
-  padding: 1%;
+  padding: 0.5%;
+  width: 30%;
 
   font-size: 1.25em;
   background-color: lightblue;
+}
+#edit input {
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+#edit textarea {
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+#edit button {
+  margin-top: 3%;
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
 }
