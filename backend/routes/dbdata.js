@@ -7,7 +7,7 @@ var jwtSecret = require('../jwt.js');
 
 /* GET dbdata listing. */
 router.get('/', function(req, res, next) {
-  sendToDB(req.body.dbname)
+  sendToDB(req.query.dbname)
   .then((dbRes, err) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(dbRes);
