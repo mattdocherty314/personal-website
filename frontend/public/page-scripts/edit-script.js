@@ -54,7 +54,7 @@ function getDBInfo(evt) {
         console.log(err);
     })
 
-    dbData = fetch(`http://localhost:3030/dbdata?dbname=${dbSelected}`)
+    dbData = fetch(`http://localhost:3030/${dbSelected}?numPerPage=100`)
     .then((resp) => {
         return resp.json();
     })
