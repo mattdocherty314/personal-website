@@ -51,7 +51,7 @@ module.exports = {
             return db.db(config.database);
         })
         .then((database, err) => {
-            return database.collection(dbCollection).updateMany(data).toArray();
+            return database.collection(dbCollection).updateMany(query, data);
         })
         .catch((error) => {
             return error;
