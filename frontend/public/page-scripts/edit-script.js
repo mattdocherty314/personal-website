@@ -36,7 +36,7 @@ function getDBInfo(evt) {
     })
     .then((meta) => {
         let entryFieldsElement = document.getElementById("entry-fields");
-        entryFieldsElement.innerHTML = "";
+        entryFieldsElement.innerHTML = `<input id='db' name='db' hidden value='${dbSelected}'/>`;
 
         for (let metaItem of meta) {
             if (metaItem.name === dbSelected) {
@@ -44,6 +44,7 @@ function getDBInfo(evt) {
                     entryFieldsElement.innerHTML += `<h3>${field}:</h3>`;
                     generateInputType(entryFieldsElement, field, metaItem.fields[field]);
                 })
+                entryFieldsElement.innerHTML += `<br/><button id="edit-button" type="submit"> Insert Data </button>`;
             }
         }
 
@@ -104,25 +105,25 @@ function fillFields() {
 function generateInputType(element, key, type) {
     switch (type) {
         case "text":
-            element.innerHTML += `<textarea id=${key}></textarea>`;
+            element.innerHTML += `<textarea id=${key} name=${key}></textarea>`;
             break;
         case "timestamp":
-            element.innerHTML += `<input id=${key} type="date"></input>`;
+            element.innerHTML += `<input id=${key} name=${key} type="date"></input>`;
             break;
         case "int":
-            element.innerHTML += `<input id=${key} type="number"></input>`;
+            element.innerHTML += `<input id=${key} name=${key} type="number"></input>`;
             break;
         case "string":
-            element.innerHTML += `<input id=${key}></input>`;
+            element.innerHTML += `<input id=${key} name=${key}></input>`;
             break;
         case "array-string":
-            element.innerHTML += `<input id=${key}></input>`;
+            element.innerHTML += `<input id=${key} name=${key}></input>`;
             break;
         case "dictionary":
-            element.innerHTML += `<input id=${key}></input>`;
+            element.innerHTML += `<input id=${key} name=${key}></input>`;
             break;
         default:
-            element.innerHTML += `<div id=${key}></div>`;
+            element.innerHTML += `<div id=${key} name=${key}></div>`;
 
             let innerElement = document.getElementById(key);
             Object.keys(type).map((ind) => {
@@ -168,6 +169,5 @@ function convertTStoInDate(timestamp, elementID) {
     }
 
     let dateValue = `${dateYear}-${dateMonth}-${dateDay}`;
-    console.log(dateValue);
     keyElement.value = dateValue;
 }

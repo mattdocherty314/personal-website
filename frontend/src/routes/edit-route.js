@@ -48,9 +48,8 @@ export function Edit() {
             <select id="select-entry">
                 <option id="id-none">No Database Selected!</option>
             </select><br/><br/>
-            <div id="entry-fields">
-            </div>
-            <button id="edit-button"> Insert Data </button>
+            <form id="entry-fields" action="http://localhost:3030/editdb" method="post">
+            </form>
         </div>
     )
 }
