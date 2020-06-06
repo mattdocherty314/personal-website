@@ -3,10 +3,10 @@
 This is the repo that is used to show my development of my website [mattdocherty.tech](https://mattdocherty.tech). It does not include any sensitive information like the data in the database or the login credentials to the data. It also will not show how I put the website into production.
 
 ## Dependencies
-* Node.JS (developed with v8.12.0)
-* MongoDB (developed with v4.0.3)
-* React (developed with v16.12.0)
-* Express (developed with v4.16.0)
+* Node.JS (developed with v10.20.1)
+* MongoDB (developed with v4.2.7)
+* React (developed with v16.13.1)
+* Express (developed with v4.16.4)
 * Other packages, located within both `package.json` files)
 
 ## Debugging
