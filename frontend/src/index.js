@@ -6,7 +6,6 @@ import { Projects } from './routes/projects-route';
 import { Resume } from './routes/resume-route';
 import { Test } from './routes/test-route';
 import { Login } from './routes/login-route';
-import { Edit } from './routes/edit-route';
 import './index.css'
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
                     <Route path="/resume" component={Resume} />
                     <Route path="/test" component={Test} />
                     <Route path="/login" component={Login} />
-                    <Route path="/edit" component={Edit} />
                 </main>
             </div>
         </Router>
