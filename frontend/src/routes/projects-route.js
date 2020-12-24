@@ -27,7 +27,7 @@ export function Projects() {
         )
     }
 
-    let projectsResp = apiResp.response;
+	let projectsResp = apiResp.response;
     return (
         <div id="projects">
             <h1> Projects </h1>
