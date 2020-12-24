@@ -28,9 +28,15 @@ This program has been tested on the above dependencies, without any issues. If y
 ### v1.1.0
 * Added `/test` route
 
+### v1.2.0
+* Added `/contact` route
+  * Added contact page & form
+  * Added mail script on backend
+* Added `/login` route
+
 ## TODO
-* Make a login system
-* Make a content editor
+* Make AWS Instance Controller Page
+* Make a database editor
 * Make API docs
     * API needs to be relatively complete
 * Refactoring & commenting of code
