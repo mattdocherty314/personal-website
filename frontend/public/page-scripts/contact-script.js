@@ -11,7 +11,7 @@ function sendContactRequest() {
 	let prefConElement = document.getElementById("pref-con");
 	let queryElement = document.getElementById("query");
 
-	let topicValue = topicElement.options[topicElement.selectedIndex].text;
+	let topicValue = topicElement.options[topicElement.selectedIndex].value;
 	let nameValue = nameElement.value;
 	let prefConValue = prefConElement.value;
 	let queryValue = queryElement.value;
