@@ -7,6 +7,7 @@ import { Resume } from './routes/resume-route';
 import { Test } from './routes/test-route';
 import { Login } from './routes/login-route';
 import { Contact } from './routes/contact-route';
+import { Servers } from './routes/servers-route';
 import './index.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Link to={"/projects"}><li>Projects</li></Link>
                     <Link to={"/resume"}><li>R&eacute;sum&eacute;</li></Link>
 					<Link to={"/contact"}><li>Contact</li></Link>
+                    <Link to={"/servers"}><li>Servers</li></Link>
                 </ul></aside>
                 <main>
                     <Route exact path="/" component={Menu} />
@@ -26,6 +28,7 @@ function App() {
                     <Route path="/test" component={Test} />
                     <Route path="/login" component={Login} />
 					<Route path="/contact" component={Contact} />
+                    <Route path="/servers" component={Servers} />
                 </main>
             </div>
         </Router>

@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 var dbInterface = require('./database/db-interface.js');
 var routeDirs = [
-  "/awards", "/contact", "/dbmeta", "/experiences", "/projects", "/units", "/users"
+  "/awards", "/contact", "/dbmeta", "/experiences", "/projects", "/servers", "/units", "/users"
 ];
 
 var app = express();
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 routeDirs.forEach(dir => {
-  var importRoute = (dir === "/") ? "./routes/index.js" : `./routes/${dir}.js`; 
+  var importRoute = (dir === "/") ? "./routes/index.js" : `./routes/${dir}.js`;
   app.use(`${dir}`, require(importRoute));
 });
 
