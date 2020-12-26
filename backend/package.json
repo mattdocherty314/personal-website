@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "aws-sdk": "^2.817.0",
     "bcryptjs": "^2.4.3",
     "clean-css": "^4.2.1",
     "constantinople": "^4.0.1",
@@ -20,6 +21,8 @@
     "nan": "^2.14.1",
     "node-pre-gyp": "^0.14.0",
     "pug": "^3.0.0",
+    "send-mail": "^0.1.0",
+    "sendmail": "^1.6.1",
     "uglify-js": "^3.9.4"
   }
 }

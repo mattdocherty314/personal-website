@@ -34,11 +34,15 @@ This program has been tested on the above dependencies, without any issues. If y
   * Added mail script on backend
 * Added `/login` route
 
+### v1.3.0
+* Added `servers` route
+  * Able to control AWS Instances
+    * Only Minecraft for now
+* Decided to use `mongo-express` as MongoDB management tool
 ## TODO
-* Make AWS Instance Controller Page
-* Make a database editor
 * Make API docs
-    * API needs to be relatively complete
+  * API needs to be relatively complete
+* Make Error Message Handling
 * Refactoring & commenting of code
 * Directory tidy-up
 * Restyling web pages
