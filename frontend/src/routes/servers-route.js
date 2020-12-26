@@ -53,7 +53,7 @@ function Server(props) {
         return (
             <div>
                 <h2>{props.name}</h2><br/>
-                <button>Start {props.name} Server</button>
+                <button id="start-mc">Start {props.name} Server</button>
             </div>
         )
     }

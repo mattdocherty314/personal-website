@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 var dbInterface = require('./database/db-interface.js');
 var routeDirs = [
-  "/awards", "/contact", "/experiences", "/projects", "/servers", "/units", "/users"
+  "/awards", "/contact", "/experiences", "/projects", "/servers", "/start", "/units", "/users"
 ];
 
 var app = express();
