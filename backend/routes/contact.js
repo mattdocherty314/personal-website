@@ -6,6 +6,7 @@ var emailSecret = require('../email.js')
 
 var sendmail = require('sendmail')();
 
+/* GET contact listing. */
 router.get('/', function(req, res, next) {
 	var emailAddr = emailSecret.value;
 	var contactForm = req.query;

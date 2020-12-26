@@ -4,7 +4,7 @@ var router = express.Router();
 var AWS = require('aws-sdk');
 var aws_info = require('../aws.js');
 
-/* GET awards listing. */
+/* GET servers listing. */
 router.get('/', function(req, res, next) {
   var aws_config = new AWS.Config({
     accessKeyId: aws_info.aki, secretAccessKey: aws_info.sak, region: aws_info.reg
