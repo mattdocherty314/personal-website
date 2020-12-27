@@ -12,16 +12,21 @@ router.get('/', function(req, res, next) {
   AWS.config.update(aws_config);
 
   var listServers = ["Minecraft"];
-  var lightsail = new AWS.Lightsail();
+  var ec2 = new AWS.EC2();
 
   let state = [];
+  var params = {
+    InstanceIds: ['i-0577240b9508bc9f7'],
+    IncludeAllInstances: true
+  };
   listServers.forEach(server => {
-    lightsail.getInstanceState({instanceName: server}, function (err, data) {
-      if (err) {
+    ec2.describeInstanceStatus(params).promise()
+     .then((data, err) => {
+      if (err) { 
         console.log(err, err.stack); // an error occurred
       }
       else {
-        if (data.state.name === "running") {
+        if (data.InstanceStatuses[0].InstanceState.Name === "running") {
           state.push({
             name: server,
             status: "online"
@@ -40,7 +45,6 @@ router.get('/', function(req, res, next) {
         }
       }
     })
-    
   })
 });
 

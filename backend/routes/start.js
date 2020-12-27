@@ -11,8 +11,12 @@ router.get(`/:name`, function(req, res, next) {
   });
   AWS.config.update(aws_config);
 
-  var lightsail = new AWS.Lightsail();
-  lightsail.startInstance({instanceName: req.params.name}, (err, data) => {
+  const instanceNameToID = {
+    "Minecraft": "i-0577240b9508bc9f7"
+  }
+
+  var ec2 = new AWS.EC2();
+  ec2.startInstances({InstanceIds: [instanceNameToID[req.params.name]]}, (err, data) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
   });
