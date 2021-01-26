@@ -39,10 +39,15 @@ This program has been tested on the above dependencies, without any issues. If y
   * Able to control AWS Instances
     * Only Minecraft for now
 * Decided to use `mongo-express` as MongoDB management tool
+
+### v1.4.0
+* Added 404 page on frontend
+* Added 404 page on backend
+* Made more meaningful error messages
+
 ## TODO
 * Make API docs
   * API needs to be relatively complete
-* Make Error Message Handling
 * Refactoring & commenting of code
 * Directory tidy-up
 * Restyling web pages
