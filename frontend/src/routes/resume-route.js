@@ -14,7 +14,7 @@ export function Resume() {
 
     let workApiResp = useDataFromBackend('/experiences?type=work,');
     let workLoading = unitApiResp.loading;
-    let workError = unitApiResp.error;
+	let workError = unitApiResp.error;
 
     let awardsApiResp = useDataFromBackend('/awards');
     let awardsLoading = awardsApiResp.loading;

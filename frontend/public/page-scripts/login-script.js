@@ -26,12 +26,17 @@ function sendLoginRequest() {
             return resp.json();
         })
         .then((resJSON) => {
-            if (resJSON.success !== null) {
+            if (resJSON.success !== undefined) {
                 setCookie("JWT", resJSON.success);
-            }
+			}
+			else if (resJSON.error !== undefined) {
+				throw resJSON.error;
+			}
         })
         .catch((err) => {
-            console.error(err);
+			console.log(err);
+			let errorPara = document.getElementById("error");
+			errorPara.innerHTML = err;
         })
     }
 }

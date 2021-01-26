@@ -263,3 +263,8 @@ h3 {
 
   font-size: 1em;
 }
+
+#error {
+	color: red;
+	padding: 2%;
+}

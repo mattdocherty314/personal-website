@@ -9,6 +9,7 @@ export function Login() {
             <h2>Password</h2><br/>
             <input id="pass" type="password"></input><br/><br/><br/><br/>
             <button id="submit-login">Login</button>
+			<p id="error"></p>
         </div>
     )
 }

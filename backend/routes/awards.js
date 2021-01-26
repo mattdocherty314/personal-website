@@ -12,8 +12,14 @@ router.get('/', function(req, res, next) {
   
   sendToDB(dbQuery)
   .then((dbRes, err) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(dbRes);
+	res.setHeader('Content-Type', 'application/json');
+	if (dbRes.name === "MongoNetworkError") {
+		res.send({"error": "Unable to connect to database."});
+	} else if (err) {
+		res.send({"error": err})
+	} else {
+		res.send({"results": dbRes});
+	}
   })
 });
 

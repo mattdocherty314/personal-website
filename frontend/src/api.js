@@ -10,7 +10,10 @@ export function useDataFromBackend(path, args={}, param={method: "GET"}) {
     useEffect(() => {
         getDataFromBackend(path, args, param)
         .then((response) => {
-            setResponse(response);
+			if (response.error !== undefined) {
+				throw response.error;
+			}
+            setResponse(response.results);
             setLoading(false);
         })
         .catch((error) => {

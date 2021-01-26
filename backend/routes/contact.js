@@ -4,13 +4,12 @@ var router = express.Router();
 
 var emailSecret = require('../email.js')
 
-var sendmail = require('sendmail')();
+var sendmail = require('sendmail')({smptPort:emailSecret.port});
 
 /* GET contact listing. */
 router.get('/', function(req, res, next) {
-	var emailAddr = emailSecret.value;
+	var emailAddr = emailSecret.address;
 	var contactForm = req.query;
-
 	
 	sendmail({
 		from: '',
@@ -18,12 +17,15 @@ router.get('/', function(req, res, next) {
 		subject: `${contactForm.topic} - ${contactForm.name} (${contactForm.prefCon})`,
 		html: contactForm.query,
 	}, function(err, reply) {
-		console.log(err && err.stack);
-		console.dir(reply);
+		res.setHeader('Content-Type', 'application/json');
+
+		if (err) {
+			res.send({"error": err})
+		}
+		res.send({"results": "Successfully sent email."});
 	});
 
-	res.setHeader('Content-Type', 'application/json');
-	res.send();
+	
 });
 
 module.exports = router;

@@ -14,6 +14,15 @@ router.post('/', function(req, res, next) {
   
   sendToDB(dbQuery)
   .then((dbRes, err) => {
+	res.setHeader('Content-Type', 'application/json');
+	if (dbRes.name === "MongoNetworkError") {
+		res.send({"error": "Unable to connect to database."});
+	} else if (dbRes[0] === undefined) {
+		// Wait a random amount of time before responding, so that it can't be identified as an invalid username
+		setTimeout(() => {res.send({"error": "Invalid username or password."})}, Math.random()*2000+100);
+	} else if (err) {
+		res.send({"error": err})
+	}
     let password = requestQuery.password;
     if (bcrypt.compareSync(password, dbRes[0].passwordhash)) {
 
@@ -25,12 +34,10 @@ router.post('/', function(req, res, next) {
         }
       }, jwtSecret.value);
       
-      res.setHeader('Content-Type', 'application/json');
-      res.send({success: `${token}`});
+      res.send({"success": `${token}`});
     }
     else {
-      res.setHeader('Content-Type', 'application/json');
-      res.send({success: null});
+      res.send({"error": "Invalid username or password."});
     }
   })
 });

@@ -12,14 +12,22 @@ router.get(`/:name`, function(req, res, next) {
   AWS.config.update(aws_config);
 
   const instanceNameToID = {
-    "Minecraft": "i-0577240b9508bc9f7"
+    "Minecraft": "i-0577240b9508bc9f"
   }
 
+  res.setHeader('Content-Type', 'application/json');
+
   var ec2 = new AWS.EC2();
-  ec2.startInstances({InstanceIds: [instanceNameToID[req.params.name]]}, (err, data) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(data);
-  });
+  ec2.startInstances({InstanceIds: [instanceNameToID[req.params.name]]})
+  .then((err, data) => {
+	if (err) {
+		throw err;
+	}
+    res.send({"results": data});
+  })
+  .catch((error) => {
+	  res.send({"error": error})
+  })
 });
 
 module.exports = router;

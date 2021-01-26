@@ -11,6 +11,8 @@ router.get('/', function(req, res, next) {
   });
   AWS.config.update(aws_config);
 
+  res.setHeader('Content-Type', 'application/json');
+
   var listServers = ["Minecraft"];
   var ec2 = new AWS.EC2();
 
@@ -23,7 +25,7 @@ router.get('/', function(req, res, next) {
     ec2.describeInstanceStatus(params).promise()
      .then((data, err) => {
       if (err) { 
-        console.log(err, err.stack); // an error occurred
+        throw err;
       }
       else {
         if (data.InstanceStatuses[0].InstanceState.Name === "running") {
@@ -40,11 +42,13 @@ router.get('/', function(req, res, next) {
         }
 
         if (state.length === listServers.length) {
-          res.setHeader('Content-Type', 'application/json');
-          res.send(state);
+          res.send({"results": state});
         }
       }
-    })
+	})
+	.catch((error) => {
+		res.send({"error": error})
+	})
   })
 });
 
