@@ -268,3 +268,10 @@ h3 {
 	color: red;
 	padding: 2%;
 }
+
+#err404 {
+	font-size: 10em;
+	text-align: center;
+
+	padding: 10%;
+}
