@@ -1,0 +1,277 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body {
+  background-color: lightblue;
+}
+iframe {
+  position: absolute;
+  height: 96%;
+  width: 100%;
+}
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 3em;
+
+  color: royalblue;
+
+  margin: 2%;
+}
+h2 {
+  font-size: 1.5em;
+
+  color: darkblue;
+}
+h3 {
+  font-size: 1.2em;
+}
+
+
+#main {
+  background-color: royalblue;
+}
+#main-title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 7em;
+
+  color: cornflowerblue;
+
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+}
+
+
+#nav {
+  list-style: none;
+
+  background-color: cornflowerblue;
+
+  overflow: hidden;
+}
+#nav li {
+  font-size: 2em;
+
+  width: 19%;
+  padding: 0.3%;
+  float: left;
+  text-align: center;
+}
+#nav li:hover {
+  background-color: lightblue;
+}
+#nav a li {
+  text-decoration: none;
+
+  color: darkblue;
+}
+
+
+#resume {
+  margin: 3%;
+}
+#resume div {
+  padding: 0% 2% 2% 2%;
+}
+
+#resume p {
+  padding: 0.5%;
+}
+#resume li {
+  padding: 0.1%;
+}
+#resume a {
+  color: darkblue;
+  background-color: cornflowerblue;
+  text-decoration: none;
+
+  float: right;
+  padding: 1% 5% 1% 5%;
+}
+#resume a:hover {
+  background-color: royalblue;
+}
+#resume select {
+  padding: 1%;
+
+  font-size: 1em;
+  background-color: lightblue;
+}
+
+
+#projects {
+  margin: 3%;
+}
+#projects div {
+  padding: 0% 2% 5% 2%;
+  min-width: 46%;
+  max-width: 46%;
+  flex-wrap: wrap;
+}
+#projects ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#projects h3 {
+  font-size: 1.1em;
+
+  text-align: justify;
+  text-justify: auto;
+}
+#projects p {
+  padding: 0.5%;
+}
+#projects li {
+  padding: 0.1%;
+}
+#projects img {
+  width: 98%;
+  padding: 1%;
+  display: block;
+}
+#projects .tech-icon {
+  width: 20%;
+  display: inline;
+}
+#projects .project-links {
+  text-align: center;
+}
+#projects .project-links a {
+  color: darkblue;
+  background-color: cornflowerblue;
+  text-decoration: none;
+
+  padding: 1% 5% 1% 5%;
+}
+#projects .project-links a:hover {
+  background-color: royalblue;
+}
+#projects #page-select {
+  text-align: center;
+}
+#projects #page-select button {
+  font-size: 1.2em;
+
+  color: darkblue;
+  background-color: cornflowerblue;
+
+  padding: 1% 5% 1% 5%;
+}
+#projects #page-select button:hover {
+  background-color: royalblue;
+}
+#projects #page-select button:disabled {
+  background-color: lightblue;
+}
+
+
+#login {
+  margin: 3%;
+}
+#login input {
+  font-size: 1.5em;
+
+  background-color: cornflowerblue;
+  border: none;
+
+  width: 100%;
+  padding: 0.5%;
+}
+#login button {
+  font-size: 1.5em;
+
+  color: darkblue;
+  background-color: cornflowerblue;
+  border: none;
+
+  margin: 0 auto;
+  padding: 0.5% 5% 0.5% 5%;
+}
+#login button:hover {
+  background-color: royalblue;
+}
+#projects #page-select button:disabled {
+  background-color: lightblue;
+}
+
+#edit {
+  margin: 3%;
+}
+#edit h3 {
+  padding: 2% 0 0.5% 0;
+}
+#edit select {
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1.25em;
+  background-color: lightblue;
+}
+#edit input {
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+#edit textarea {
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+#edit button {
+  margin-top: 3%;
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+
+#contact {
+  margin: 3%;
+}
+#contact h3 {
+  padding: 2% 0 0.5% 0;
+}
+#contact select {
+  padding: 0.5%;
+  width: 30%;
+  
+  font-size: 1.25em;
+  background-color: lightblue;
+}
+#contact input {
+  padding: 0.5%;
+  width: 30%;
+  
+  font-size: 1em;
+}
+#contact textarea {
+  padding: 0.5%;
+  width: 30%;
+  
+  font-size: 1em;
+}
+#contact button {
+  margin-top: 3%;
+  padding: 0.5%;
+  width: 30%;
+
+  font-size: 1em;
+}
+
+#error {
+	color: red;
+	padding: 2%;
+}
+
+#err404 {
+	font-size: 10em;
+	text-align: center;
+
+	padding: 10%;
+}
