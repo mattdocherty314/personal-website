@@ -1,4 +1,7 @@
-# Personal Website
+# Personal Website (Archived)
+_Project was archived on 3 Nov 2021 due to the lack of need for dynamic portfolio website.
+New website will be at [mattdocherty314.github.io](https://mattdocherty314.github.io)_.
+
 ## Overview
 This is the repo that is used to show my development of my website [mattdocherty.tech](https://mattdocherty.tech). It does not include any sensitive information like the data in the database or the login credentials to the data. It also will not show how I put the website into production.
 
